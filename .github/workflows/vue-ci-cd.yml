@@ -6,17 +6,18 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: actions-test
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: move to vue
-        run: cd actions-test && pwd
-
       - name: install
-        run: pwd && yarn install
+        run: yarn install
 
       - name: build
         run: yarn build
